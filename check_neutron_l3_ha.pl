@@ -146,7 +146,7 @@ sub run {
     $plugin = Nagios::Plugin->new( shortname => 'CHECK_NEUTRON_L3_HA' );
 
     my $usage = <<'EOT';
-check_device_mounted [-H|--host <hostname>] [-A|--authurl <HOST|IP>] [-u|--user] [-T|--tenant] [-p|--passwd] [-P|--port] [-C|--config <path/to/config>]
+check_device_mounted [-H|--host <hostname>] [-A|--authurl <HOST|IP>] [-u|--user] [-T|--tenant] [-p|--passwd] [-P|--port]
              [-C|--config <path/to/config>] [-h|--help] [-V|--version] [--usage] [--debug] [--verbose]
 EOT
 
@@ -228,7 +228,7 @@ EOT
         $tenant   = $Config->{compute}->{tenant}[0];
         $password = $Config->{compute}->{password}[0];
         $authurl
-            = "http://"
+            = "https://"
             . $Config->{compute}->{keystone}[0] . ":"
             . $options->port
             . "/v2.0/";
